@@ -1,0 +1,51 @@
+{
+	"configs": [
+		{
+			"topic": "teste_integrador",
+
+			"filter": {
+				"card_type_name": ["Story"]
+			},
+
+			"map_model": {
+				"issue": {
+					"id": null,
+					"project_id": 146,
+					"subject": "name",
+					"priority_id": 29,
+					"description": "descrption",
+					"tracker_id": 7,
+					"is_private": false,
+					"custom_fields": [
+						{
+							"id": 83,
+							"value": "number"
+						}
+					],
+					"status_id": 1
+				}
+			},
+
+			"classification": {
+				"rules": [
+					{
+						"expression": [
+							"created_at == updated_at"
+						],
+						"operator": "and",
+						"newTopicName": "redmine-create"
+					},
+					{
+						"expression": [
+							"created_at != updated_at"
+						],
+						"operator": "or",
+						"newTopicName": "redmine-update"
+					}
+				],
+				"defaultNameNewTopic": "generic-topic"
+			}
+		}
+	]
+}
+
